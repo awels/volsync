@@ -3,6 +3,7 @@ module github.com/backube/volsync
 go 1.19
 
 require (
+	github.com/dop251/diskrsync v1.3.0
 	github.com/go-logr/logr v1.2.4
 	github.com/google/uuid v1.3.0
 	github.com/kubernetes-csi/external-snapshotter/client/v6 v6.2.0
@@ -29,6 +30,8 @@ require (
 	k8s.io/utils v0.0.0-20230209194617-a36077c30491
 	sigs.k8s.io/controller-runtime v0.15.0
 )
+
+require github.com/dop251/spgz v1.2.0
 
 require (
 	github.com/AudriusButkevicius/pfilter v0.0.11 // indirect

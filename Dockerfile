@@ -1,6 +1,6 @@
 ######################################################################
 # Establish a common builder image for all golang-based images
-FROM docker.io/library/golang:1.19 AS golang-builder
+FROM golang:1.19 AS golang-builder
 USER root
 WORKDIR /workspace
 # We don't vendor modules. Enforce that behavior
@@ -82,7 +82,7 @@ RUN go run build.go -no-upgrade
 FROM golang-builder AS diskrsync-builder
 
 WORKDIR /workspace/diskrsync
-RUN GOPATH=$(pwd) go install github.com/dop251/diskrsync/diskrsync@latest
+RUN GOPATH=$(pwd) go install github.com/dop251/diskrsync/diskrsync@v1.3.0
 
 ######################################################################
 # Build diskrsync-tcp binary

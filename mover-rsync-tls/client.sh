@@ -35,6 +35,8 @@ if [[ ! -d $SOURCE ]] && ! test -b $BLOCK_SOURCE; then
 fi
 
 if ! test -b $BLOCK_SOURCE; then
+    echo "Source PVC volumeMode is filesystem"
+
     cat - > "$STUNNEL_CONF" <<STUNNEL_CONF
 ; Global options
 debug = debug
@@ -57,6 +59,8 @@ STUNNEL_CONF
 ## Print version information
 rsync --version
 else
+    echo "Source PVC volumeMode is block"
+
     cat - > "$STUNNEL_CONF" <<STUNNEL_CONF
 ; Global options
 debug = debug
